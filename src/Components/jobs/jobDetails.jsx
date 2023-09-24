@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import Swal from 'sweetalert2'
 import { json, useLoaderData, useParams } from 'react-router-dom';
 import { RiMoneyDollarCircleLine } from 'react-icons/ri';
 import { CiLocationOn } from 'react-icons/ci';
@@ -13,23 +14,37 @@ const JobDetails = () => {
 
     console.log(findJob)
     const {id,logo,job_title,company_name,remote_or_onsite,job_type,location,salary,contact_information,educational_requirements, experiences,job_description,job_responsibility,} = findJob;
-
+useEffect(()=>{
+window.scroll(0,0);
+},[])
 
 const handleSavedApplication = (id)=>{
 const storageApplication = getApplication();
 const duplicate = storageApplication.find(application => application === id);
 if(!duplicate){
+    Swal.fire(
+        'Good job!',
+        'Applied successful!',
+        'success'
+      )
     storageApplication.push(id);
 saveApplication(JSON.stringify(storageApplication));
+}
+else{
+    Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Already applied!',
+      })
 }
 
 }
 
 
     return (
-     <section className='max-w-7xl mx-auto lg:px-0 px-2'>
+     <section className='max-w-7xl mx-auto lg:px-0 px-2 min-h-[80h]'>
         <h1 className="text-center text-black text-4xl ">Job Details</h1>
-    <div className='grid md:grid-cols-4 grid-cols-1 gap-5  py-32'>
+    <div className='grid md:grid-cols-4 grid-cols-1 gap-5  py-10'>
 <div className='md:col-span-3'>
 <div className='space-y-7'>
     <p><span className=' text-black font-medium'>Job Description:</span> {job_description}</p>

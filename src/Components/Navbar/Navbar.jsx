@@ -11,7 +11,7 @@ const [toggle,setToggle] = useState(false);
 <div>
     <h1 className="text-4xl font-medium text-black">CareerHub</h1>
 </div>
-<ul className={`flex md:static  md:justify-between text-xl md:space-x-5 md:space-y-0 space-y-8 md:text-black md:blog md:flex-row flex-col fixed right-0 top-10 md:bg-inherit bg-black md:shadow-none shadow-lg md:px-0 md:py-0 px-20 py-6 md:h-fit text-white h-full md:duration-0 duration-1000 z-10 ${toggle? 'right-0' : '-right-[200%]'}`}>
+<ul className={`flex md:static  md:justify-between text-xl md:space-x-5 md:space-y-0 space-y-8 md:text-black md:blog md:flex-row flex-col fixed  top-10 md:bg-inherit bg-black md:shadow-none shadow-lg md:px-0 md:py-0 px-20 py-6 md:h-fit text-white h-full md:duration-0 duration-1000 z-10 ${toggle? 'right-0' : '-right-[200%]'}`}>
 <NavLink to = '/' onClick={()=>{
     setToggle(false)
 }}  className={({ isActive, isPending }) =>

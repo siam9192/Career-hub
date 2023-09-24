@@ -36,7 +36,7 @@ Applied Jobs
 <select name="" id="" className='w-52  py-3 border-[2px] bg-gray-200 rounded border-blue-600 text-xl' onChange={(e)=>{
 setSort(e.target.value)
     }}>
-    <option value="All" >All</option>
+    <option value="All">All</option>
 <option value="Onsite">Onsite</option>
     <option value="Remote">Remote</option>
 </select>
